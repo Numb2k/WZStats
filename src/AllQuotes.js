@@ -1,31 +1,15 @@
-import React, { Component } from 'react'
-import quotesData from './quotes.json'
-import './App.css'
+import React from 'react';
+import quotesData from './quotes.json';
+import './App.css';
 
+const quotesList = quotesData.quotes;
 
-var quotesList = quotesData.quotes;
+const Quotes = () => (
+	<ul>
+		{Object.keys(quotesData.quotes).map(key => (
+			<li>{`${key}: ${quotesData.quotes[key]}`}</li>
+		))}
+	</ul>
+);
 
-class Quotes extends Component {
-    render() {
-        return (
-            <ul>
-                {
-                    quotesList.map((s) => {
-                        return (
-                            <div>
-                                <div>
-                                    <div> {s.quotes} </div>
-                                </div>
-                            </div>
-                        );
-                    })
-
-                }
-
-            </ul>
-        )
-    }
-
-}
-
-export default Quotes
+export default Quotes;
